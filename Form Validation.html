@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style type="text/css">
+		
+		form{
+			margin-top: 90px;
+		}
+
+		form input{
+			color:black;
+			margin-top: 10px;
+			width: 220px;
+			padding: 15px;
+			border-radius: 10px;
+			font-weight: bold;
+			font-size: 15px;
+			font-family: arial;
+			box-shadow: 1px 1px 10px  black;
+			border:none;
+		}
+
+		form h1{
+			font-weight: bold;
+			font-family: arial;
+		}
+		.s{
+			color:red;
+			font-size: 20px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+<center>
+	<form method="post" action="">
+		<p>
+		<h1>SignUp</h1>
+		</p>
+		<lable class="s">* </lable><input type="text" name="" placeholder="Email" id="emailval"><br>
+		<lable class="s">* </lable><input type="Password" name="" placeholder="Password" id="pass1"><br>
+		<lable class="s">* </lable><input type="Password" name="" placeholder="Password Try" id="pass2"><br>
+		<lable class="s">* </lable><input type="text" name="" placeholder="Phone" id="pho"><br>
+		<input type="button" name="" value="Register" onclick="ValidateEmail()">
+	</form>
+</center>
+
+<script type="text/javascript">
+
+	function ValidateEmail()
+	{
+	var x = document.getElementById("emailval").value;
+	var p1 = document.getElementById("pass1").value;
+	var p2 = document.getElementById("pass2").value;
+	var ph = document.getElementById("pho").value;
+	var phoneformat = /^\d{10}$/ ;
+	var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+	if(x.match(mailformat))
+	{
+	alert("Valid email address!");
+	$("#emailval").css("color","green");
+	$("#emailval").css("box-shadow","1px 1px 10px green");
+	}
+	else
+	{
+
+	$("#emailval").css("color","red");
+	$("#emailval").css("box-shadow","1px 1px 10px red");
+	}
+
+	if(p1 === p2){	
+	$("#pass1").css("color","green");
+	$("#pass2").css("color","green");
+	$("#pass1").css("box-shadow","1px 1px 10px green");
+	$("#pass2").css("box-shadow","1px 1px 10px green");
+	}
+	else
+	{
+		alert("Not Match plz try again");
+		$("#pass1").val("");
+		$("#pass2").val("");
+	}
+
+	if(x ==""){
+		$("#emailval").css("box-shadow","1px 1px 10px red");
+	}
+	if(p1 == ""){
+		$("#pass1").css("box-shadow","1px 1px 10px red");
+	} 
+	if(p2 == ""){
+		$("#pass2").css("box-shadow","1px 1px 10px red");
+	}
+
+	if(ph == ""){
+		$("#pho").css("box-shadow","1px 1px 10px red");
+	}else if(ph.match(phoneformat)){
+		$("#pho").css("box-shadow","1px 1px 10px green");
+	}else {
+		alert("Wroung phone number");	
+		$("#pho").css("box-shadow","1px 1px 10px red");
+	}
+}
+
+	</script>
+
+</body>
+</html>

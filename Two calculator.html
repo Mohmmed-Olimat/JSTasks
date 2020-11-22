@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body table{
+			margin:0 auto;
+			margin-top: 150px;
+		}
+		.title{
+			border-radius: 10px;
+			margin-bottom: 10px;
+			text-align:center;
+			width: 210px;
+			color:#ff4456;
+			border: solid black 1px;
+			}
+			input[type="button"]
+			{
+			border-radius: 10px;
+			background-color:#ff4456;
+			color: black;
+			border-color:#ff4456 ;
+			width:100%;
+			}
+			input[type="text"]
+			{
+			border-radius: 10px;
+			text-align: right;
+			background-color:white;
+			border-color: black ;
+			width:100%
+			}		
+
+			.ii{
+				width: 50px;
+				margin:0 auto;
+				margin-top: 50px;
+			}
+
+			#output{
+				width: 190px;
+				border-radius:0 !important;
+				text-align: left !important;
+			}
+	</style>
+</head>
+<body>
+	<table border="1">
+	<tr>
+	<td><input type="button" value="C" onclick="clr()"/> </td>
+	<td colspan="3"><input type="text" id="edu"/></td>
+	</tr>
+	<tr>
+
+	<td><input type="button" value="+" onclick="dis('+')"/> </td>
+	<td><input type="button" value="1" onclick="dis('1')"/> </td>
+	<td><input type="button" value="2" onclick="dis('2')"/> </td>
+	<td><input type="button" value="3" onclick="dis('3')"/> </td>
+	</tr>
+	<tr>
+	<td><input type="button" value="-" onclick="dis('-')"/> </td>
+	<td><input type="button" value="4" onclick="dis('4')"/> </td>
+	<td><input type="button" value="5" onclick="dis('5')"/> </td>
+	<td><input type="button" value="6" onclick="dis('6')"/> </td>
+	</tr>
+	<tr>
+	<td><input type="button" value="*" onclick="dis('*')"/> </td>
+	<td><input type="button" value="7" onclick="dis('7')"/> </td>
+	<td><input type="button" value="8" onclick="dis('8')"/> </td>
+	<td><input type="button" value="9" onclick="dis('9')"/> </td>
+	</tr>
+	<tr>
+	<td><input type="button" value="/" onclick="dis('/')"/> </td>
+	<td><input type="button" value="." onclick="dis('.')"/> </td>
+	<td><input type="button" value="0" onclick="dis('0')"/> </td>
+
+	<td><input type="button" value="=" onclick="solve()"/> </td>
+	</tr>
+	</table>
+ 
+
+	<div class="ii">
+		<input type="number" name="" id="num1">
+		<br>
+		<input type="button" value="+" id="op" onclick="test('+')">
+		<input type="button" value="-" id="op" onclick="test('-')">
+		<input type="button" value="*" id="op" onclick="test('*')">
+		<input type="button" value="/" id="op" onclick="test('/')">
+		<br>
+		<input type="number" name="" id="num2">
+		<br>
+		<input type="text" name="" placeholder="Result" id="output">
+		<input type="button" value="=" onclick="solve2()">
+	</div>
+
+	<div id="output1"></div>
+
+<script>
+	function dis(val)
+	{
+	document.getElementById("edu").value+=val;
+	}
+
+	function solve()
+	{
+	let x = document.getElementById("edu").value;
+	let y = eval(x);
+	document.getElementById("edu").value = y;
+	}
+
+	function clr()
+	{
+	document.getElementById("edu").value = "";
+	}
+
+
+	let op;
+	
+	function test(op1){
+		op = op1;
+	}
+
+	function solve2(){
+	let number1 = document.getElementById("num1").value;
+	let number2 = document.getElementById("num2").value;
+	let result; 
+	if(op === '+'){
+		result= parseFloat(number1) + parseFloat(number2);
+	}else if(op === '*'){
+		result= parseFloat(number1) * parseFloat(number2);
+	}else if(op == "-"){
+		result= parseFloat(number1) - parseFloat(number2);
+	}else if(op == "/"){
+		if(number2 == 0 && number1 > 0){
+		 result="Sorry Cano't divided by Zero !!";	
+	}else{
+		result= parseFloat(number1) / parseFloat(number2); 
+	}
+}
+	document.getElementById("output").value=result;
+	}
+
+</script>
+</body>
+</html>

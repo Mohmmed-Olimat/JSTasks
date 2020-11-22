@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Tasks</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style type="text/css">
+#bgcol{
+ 		/*margin-top: 3000px;*/		}
+ 		
+
+ 		#totop{
+ 			display: none;
+ 			position: fixed;
+ 			bottom: 20px;
+ 			right: 30px;
+ 			z-index: 99;
+ 			font-size: 18px;
+ 			border: none;
+ 			outline: none;
+ 			background-color: blue	;
+ 			color: white;
+ 			cursor: pointer;
+ 			padding: 15px;
+ 			border-radius: 20px;
+ 		}
+ 		p{
+ 			margin-top: 100px;
+ 		}
+		
+	</style>
+ 
+</head>
+<body>
+	<h1>Top</h1>
+
+	<input type="color" name="cc" id="bgcol">
+	<button id="Change">Change Background Color</button>
+	<hr>
+	<p>What is JavaScript?</p>
+	<ul>
+		<li id="op1">Server Side</li>
+		<li id="op2" >Client Side</li>
+		<li id="op3">Both Side</li>
+		<li id="op4">Fries And Pepse</li>
+	</ul>
+	<button id="ShowA">Show Answer</button>
+	<hr>
+	<select id="country">
+		<option id="jo" value="1">Jordan</option>
+		<OPTION id="USA" value="2">USA</OPTION>
+	</select>
+	<select id="Joc">
+		<option>Amman</option>
+		<option>Mafraq</option>
+		<option>Zarqa</option>
+	</select>
+	<select id="USs">
+		<option>Alabama</option>
+		<option>New Mexico</option>
+		<option>New York</option>
+	</select>	
+		<select id="usz">
+		<option>11</option>
+		<option>22</option>
+		<option>33</option>
+		</select>
+		<hr>
+		<button id="totop" onclick="topFunction()">Top</button>
+
+		<p>
+			What is Lorem Ipsum?
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+		</p>
+			<p>
+			What is Lorem Ipsum?
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+		</p>
+			<p>
+			What is Lorem Ipsum?
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+		</p>
+			<p>
+			What is Lorem Ipsum?
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+		</p>
+			<p>
+			What is Lorem Ipsum?
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+		</p>
+			<p>
+			What is Lorem Ipsum?
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+		</p>
+		
+		 
+
+
+
+
+
+
+	<script type="text/javascript">
+		$("#Change").click(function(){
+			var theInput = document.getElementById("bgcol");
+			var theColor = theInput.value;
+
+	//alert(theInput.value);
+	$("body").css("background-color",theColor);
+		
+	});
+
+		$("#ShowA").click(function(){
+			$("li").css("color", "red");
+			$("#op2").css("color", "Green");
+		
+	});
+			$(document).ready(function(){
+				document.body.scrollTop = 0;
+				document.documentElement.scrollTop = 0;
+
+				$("#totop").css("position","fixed");
+				$("#USs").hide();
+      			$("#usz").hide();
+      			
+
+
+			 $("#country").change(function(){
+        var selectedCountry = $(this).children("option:selected").val();
+      //  alert("You have selected the country - " + selectedCountry);
+      //alert(selectedCountry);
+
+      if(selectedCountry==2){
+      	$("#Joc").hide();
+      	$("#USs").show();
+      	$("#usz").show();
+
+      }
+    else {
+    	$("#USs").hide();
+      	$("#usz").hide();
+      	$("#Joc").show();
+    }
+
+
+		
+	});
+			 });
+
+			
+	//Get the button
+	var mybutton = document.getElementById("totop");
+
+		//scrolls down show the button
+		window.onscroll = function() {scrollFunction()};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+				mybutton.style.display = "block";
+			} else {
+				mybutton.style.display = "none";
+			}
+		}
+
+		function topFunction() {
+ 		 document.body.scrollTop = 0;
+  		document.documentElement.scrollTop = 0;
+}
+
+	</script>
+
+</body>
+</html>
